@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To run the project you just need to do 
 
-Things you may want to cover:
+``` bash
+docker-compose up
+``` 
 
-* Ruby version
+all apis exists in postman collection which located in project root, you can import it and test all apis 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
