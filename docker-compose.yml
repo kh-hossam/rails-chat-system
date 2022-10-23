@@ -13,19 +13,87 @@ services:
         expose:
             - "3306"
         volumes:
-            - db:/var/run/mysqld
+            - db:/var/lib/mysql
         command: --default-authentication-plugin=mysql_native_password
+
+    redis:
+        image: redis:alpine
+        restart: always
+        ports:
+        - '6379:6379'
+        volumes:
+        - ./volumes/redis-data:/data
+        command: redis-server
+
+    rabbitmq:
+        image: rabbitmq:3.11-management-alpine
+        restart: always
+        ports:
+        - 5672:5672
+        - 15672:15672
+        volumes:
+        - ./volumes/rabbitmq:/var/lib/rabbitmq
+
+    elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.17.6
+        restart: always
+        environment:
+        - cluster.name=es-docker-cluster
+        - bootstrap.memory_lock=true
+        - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+        - discovery.type=single-node
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+        volumes:
+        - esdata:/usr/share/elasticsearch/data
+        ports:
+        - 9200:9200
 
     app: 
         build: .
-        command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+        command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails db:migrate && bundle exec rake elasticsearch_start && bundle exec rails s -p 3000 -b '0.0.0.0'"
+        restart: always
         volumes: 
             - ".:/app"
         ports: 
             - "3000:3000"
         depends_on:
             - db
-        links:
+            - redis
+            - rabbitmq
+            - elasticsearch
+        environment:
+            DB_USER: root
+            DB_NAME: app
+            DB_PASSWORD: password
+            DB_HOST: db
+
+    worker:
+        build: .
+        command: bundle exec rake sneakers:run
+        restart: always
+        volumes:
+            - .:/app
+        depends_on:
+            - app
+            - db
+        environment:
+            WORKERS: ChatWorker,MessageWorker
+            DB_USER: root
+            DB_NAME: app
+            DB_PASSWORD: password
+            DB_HOST: db
+
+    rufus_scheduler:
+        build: .
+        restart: always
+        volumes:
+        - .:/app
+        command: bundle exec rake rufus_scheduler
+        depends_on:
+            - app
             - db
         environment:
             DB_USER: root
@@ -35,3 +103,4 @@ services:
 
 volumes:
   db:
+  esdata:

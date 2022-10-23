@@ -1,0 +1,564 @@
+{
+	"info": {
+		"_postman_id": "8ba803b4-1d9e-435f-bb27-c012c015bce7",
+		"name": "rails chat system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6603898"
+	},
+	"item": [
+		{
+			"name": "applications",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/applications",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "application 1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/applications",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "application 2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/applications/:token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"applications",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "3fd9618c49c9b7a509bb990f04b63861890fca4c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/applications/:token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"applications",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "IRxDGhUFPQIrKAeZAGuqWWSLFqypyaDDtMhoeupqNCLXnQZPWr"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/applications/:token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"applications",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "3fd9618c49c9b7a509bb990f04b63861890fca4c"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chats",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/applications/:token/chats",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"applications",
+								":token",
+								"chats"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "3fd9618c49c9b7a509bb990f04b63861890fca4c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/applications/:token/chats",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"applications",
+								":token",
+								"chats"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "3fd9618c49c9b7a509bb990f04b63861890fca4c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/applications/:token/chats/:chat_number",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"applications",
+								":token",
+								"chats",
+								":chat_number"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "3fd9618c49c9b7a509bb990f04b63861890fca4c"
+								},
+								{
+									"key": "chat_number",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/applications/:token/chats/:chat_number",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"applications",
+								":token",
+								"chats",
+								":chat_number"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "3fd9618c49c9b7a509bb990f04b63861890fca4c"
+								},
+								{
+									"key": "chat_number",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "messages",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "body",
+									"value": "chat 12 msg1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/applications/:token/chats/:chat_number/messages",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"applications",
+								":token",
+								"chats",
+								":chat_number",
+								"messages"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "3fd9618c49c9b7a509bb990f04b63861890fca4c"
+								},
+								{
+									"key": "chat_number",
+									"value": "13"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/applications/:token/chats/:chat_number/messages",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"applications",
+								":token",
+								"chats",
+								":chat_number",
+								"messages"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "3fd9618c49c9b7a509bb990f04b63861890fca4c"
+								},
+								{
+									"key": "chat_number",
+									"value": "13"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/applications/:token/chats/:chat_number/messages/:message_number",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"applications",
+								":token",
+								"chats",
+								":chat_number",
+								"messages",
+								":message_number"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "3fd9618c49c9b7a509bb990f04b63861890fca4c"
+								},
+								{
+									"key": "chat_number",
+									"value": "13"
+								},
+								{
+									"key": "message_number",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "body",
+									"value": "chat 12 msg1 edited",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/applications/:token/chats/:chat_number/messages/:message_number",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"applications",
+								":token",
+								"chats",
+								":chat_number",
+								"messages",
+								":message_number"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "3fd9618c49c9b7a509bb990f04b63861890fca4c"
+								},
+								{
+									"key": "chat_number",
+									"value": "13"
+								},
+								{
+									"key": "message_number",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "body",
+									"value": "chat 12 msg1 edited",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/applications/:token/chats/:chat_number/messages/:message_number",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"applications",
+								":token",
+								"chats",
+								":chat_number",
+								"messages",
+								":message_number"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "3fd9618c49c9b7a509bb990f04b63861890fca4c"
+								},
+								{
+									"key": "chat_number",
+									"value": "13"
+								},
+								{
+									"key": "message_number",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/applications/:token/chats/:chat_number/messages_search?query=msg",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"applications",
+								":token",
+								"chats",
+								":chat_number",
+								"messages_search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "msg"
+								}
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "3fd9618c49c9b7a509bb990f04b63861890fca4c"
+								},
+								{
+									"key": "chat_number",
+									"value": "13"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}

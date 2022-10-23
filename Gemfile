@@ -36,6 +36,20 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
+
+gem 'redis', '~> 5.0', '>= 5.0.5'
+gem 'redis-namespace'
+gem "bunny", ">= 2.19.0"
+gem "sneakers"
+
+gem 'elasticsearch-model', '~> 7.2', '>= 7.2.1'
+gem 'elasticsearch-rails', '~> 7.2', '>= 7.2.1'
+
+gem 'active_model_serializers'
+
+gem "rufus-scheduler"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
